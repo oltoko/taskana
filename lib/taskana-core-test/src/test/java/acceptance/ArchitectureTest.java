@@ -56,7 +56,6 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.function.ThrowingConsumer;
-import testapi.TaskanaIntegrationTest;
 
 import pro.taskana.common.api.TaskanaEngine;
 import pro.taskana.common.api.exceptions.ErrorCode;
@@ -66,6 +65,7 @@ import pro.taskana.common.internal.InternalTaskanaEngine;
 import pro.taskana.common.internal.logging.LoggingAspect;
 import pro.taskana.common.internal.util.CheckedFunction;
 import pro.taskana.common.internal.util.MapCreator;
+import pro.taskana.testapi.TaskanaIntegrationTest;
 
 /**
  * Test architecture of classes in TASKANA. For more info and examples see <a
@@ -304,7 +304,7 @@ class ArchitectureTest {
         .and()
         .areNotAssignableTo(TaskanaEngine.class)
         .and()
-        .resideOutsideOfPackage("..monitor..")
+        .resideOutsideOfPackages("..monitor..", "pro.taskana.testapi..")
         .should()
         .dependOnClassesThat()
         .resideInAPackage("..monitor..")
